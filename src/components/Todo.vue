@@ -144,7 +144,7 @@ export default {
       inputValue = null;
     },
     deleteCard() {
-      console.log(this.dataList);
+      console.log('no this');
     }
   },
 };
