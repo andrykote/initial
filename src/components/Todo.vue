@@ -7,6 +7,7 @@
       type="text"
       placeholder="Add card in list..."
       @keyup.enter="createCard"
+      :value="inputValue"
     />
     <button @click="createCard">Add card</button>
     <ul class="list">
@@ -134,6 +135,7 @@ export default {
   data() {
     return {
       dataList: [],
+      inputValue: '',
     };
   },
   methods: {
@@ -142,9 +144,10 @@ export default {
       if (inputValue === "") return;
       this.dataList.push(inputValue);
       inputValue = null;
+      console.log(inputValue);
     },
     deleteCard() {
-      console.log('no this');
+      console.log(this.dataList);
     }
   },
 };
