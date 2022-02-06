@@ -16,7 +16,7 @@
         v-for="(value, index) in dataList"
         :key="value"
       >
-        {{ index + 1 }} {{ value }}
+        {{ index + 1 }} {{ reverseText(value) }}
 
         <img src="../assets/logo.png" alt="logo" @click="deleteCard(index)" width="20" height="20" />
       </li>
@@ -44,6 +44,10 @@ export default {
 
     deleteCard(index) {
       this.dataList.splice(index, 1)
+    },
+
+    reverseText(item) {
+        return item.split('').reverse().join('')
     },
   },
 };
