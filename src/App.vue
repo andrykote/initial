@@ -1,16 +1,20 @@
 <template>
   <div>
     <Todo />
+    <counter/>
   </div>
 </template>
 
 <script>
 import Todo from './components/Todo.vue'
+import Counter from './components/Counter.vue'
 
 export default {
   name: "App",
   components: {
     Todo,
+    Counter,
+    
   },
   data() {
     return {
@@ -21,6 +25,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 * {
   margin: 0;
   padding: 0;
@@ -44,27 +49,5 @@ export default {
   margin-bottom: 12px;
 }
 
-.parent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 10%;
-  background-color: rgb(196, 194, 189);
-
-  .children {
-    width: 500px;
-    height: 100px;
-
-    &1 {
-      background-color: red;
-    }
-    &2 {
-      background-color: darkgrey;
-    }
-    &3 {
-      background-color: darkblue;
-    }
-  }
-}
 </style>>
 

@@ -5,16 +5,16 @@
     <input
       class="input base"
       type="text"
-      placeholder="Add card in list..."
+      :placeholder="inputPlaceholder"
       @keyup.enter="createCard"
       :value="inputValue"
     />
-    <button @click="createCard">Add card</button>
+    <button @click="createCard"> Add card </button>
     <ul class="list">
-      <li class="list-item base" v-for="value in dataList" :key="value">
-        {{ value }}
+      <li class="list-item base" v-for="(value, index) in dataList" :key="value" >
+        {{index +1 }} {{ value }}
         <svg
-        @click="deleteCard"
+        @click="deleteCard($event)"
         class="svg-delete"
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -127,6 +127,8 @@
       </li>
     </ul>
   </div>
+
+  
 </template>
 
 <script>
@@ -135,6 +137,7 @@ export default {
   data() {
     return {
       dataList: [],
+      inputPlaceholder: 'Add card in list...',
       inputValue: '',
     };
   },
@@ -146,8 +149,8 @@ export default {
       inputValue = null;
       console.log(inputValue);
     },
-    deleteCard() {
-      console.log(this.dataList);
+    deleteCard(event) {
+      console.log(event.target.closest('.list-item'));
     }
   },
 };
@@ -164,11 +167,16 @@ export default {
   font-family: serif;
 }
 
+.inputbox {
+  margin-bottom: 20px;
+}
+
 .input {
   margin-right: 10px;
   margin-bottom: 20px;
   padding: 5px;
   border-radius: 5px;
+
 }
 
 .list {
@@ -177,7 +185,7 @@ export default {
   row-gap: 5px;
   list-style-type: none;
   margin: 0 auto;
-  max-width: 500px;
+  max-width: 350px;
 }
 
 .list-item {
@@ -193,6 +201,31 @@ export default {
     &:hover {
       cursor: pointer;
       transform: scale(1.2);
+    }
+  }
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  column-gap: 10px;
+  
+  .btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+
+    
+    &:first-child {
+      background-color: green;
+    }
+
+    &:last-child {
+      background-color: red;
     }
   }
 }
