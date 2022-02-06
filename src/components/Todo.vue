@@ -6,129 +6,22 @@
       class="input base"
       type="text"
       :placeholder="inputPlaceholder"
-      @keyup.enter="createCard"
+      @keypress.enter="createCard"
       :value="inputValue"
     />
-    <button @click="createCard"> Add card </button>
+    <button @click="createCard">Add card</button>
     <ul class="list">
-      <li class="list-item base" v-for="(value, index) in dataList" :key="value" >
-        {{index +1 }} {{ value }}
-        <svg
-        @click="deleteCard($event)"
-        class="svg-delete"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          version="1.1"
-          width="16"
-          height="16"
-          viewBox="0 0 256 256"
-          xml:space="preserve"
-        >
-          <desc>Created with Fabric.js 1.7.22</desc>
-          <defs></defs>
-          <g transform="translate(128 128) scale(0.72 0.72)" style="">
-            <g
-              style="
-                stroke: none;
-                stroke-width: 0;
-                stroke-dasharray: none;
-                stroke-linecap: butt;
-                stroke-linejoin: miter;
-                stroke-miterlimit: 10;
-                fill: none;
-                fill-rule: nonzero;
-                opacity: 1;
-              "
-              transform="translate(-175.05 -175.05000000000004) scale(3.89 3.89)"
-            >
-              <path
-                d="M 68.842 90 H 21.158 c -4.251 0 -7.696 -3.446 -7.696 -7.696 v -52.09 h 63.077 v 52.09 C 76.538 86.554 73.092 90 68.842 90 z"
-                style="
-                  stroke: none;
-                  stroke-width: 1;
-                  stroke-dasharray: none;
-                  stroke-linecap: butt;
-                  stroke-linejoin: miter;
-                  stroke-miterlimit: 10;
-                  fill: rgb(188, 60, 60);
-                  fill-rule: nonzero;
-                  opacity: 1;
-                "
-                transform=" matrix(1 0 0 1 0 0) "
-                stroke-linecap="round"
-              />
-              <path
-                d="M 78.321 22.213 H 11.679 c -2.209 0 -4 -1.791 -4 -4 s 1.791 -4 4 -4 h 66.643 c 2.209 0 4 1.791 4 4 S 80.53 22.213 78.321 22.213 z"
-                style="
-                  stroke: none;
-                  stroke-width: 1;
-                  stroke-dasharray: none;
-                  stroke-linecap: butt;
-                  stroke-linejoin: miter;
-                  stroke-miterlimit: 10;
-                  fill: rgb(188, 60, 60);
-                  fill-rule: nonzero;
-                  opacity: 1;
-                "
-                transform=" matrix(1 0 0 1 0 0) "
-                stroke-linecap="round"
-              />
-              <path
-                d="M 57.815 22.213 h -25.63 c -2.209 0 -4 -1.791 -4 -4 V 7.696 C 28.185 3.453 31.637 0 35.881 0 h 18.238 c 4.244 0 7.696 3.453 7.696 7.696 v 10.517 C 61.815 20.422 60.024 22.213 57.815 22.213 z M 36.185 14.213 h 17.63 V 8 h -17.63 V 14.213 z"
-                style="
-                  stroke: none;
-                  stroke-width: 1;
-                  stroke-dasharray: none;
-                  stroke-linecap: butt;
-                  stroke-linejoin: miter;
-                  stroke-miterlimit: 10;
-                  fill: rgb(188, 60, 60);
-                  fill-rule: nonzero;
-                  opacity: 1;
-                "
-                transform=" matrix(1 0 0 1 0 0) "
-                stroke-linecap="round"
-              />
-              <path
-                d="M 54.784 78.235 c -2.209 0 -4 -1.791 -4 -4 V 44.976 c 0 -2.209 1.791 -4 4 -4 s 4 1.791 4 4 v 29.259 C 58.784 76.444 56.993 78.235 54.784 78.235 z"
-                style="
-                  stroke: none;
-                  stroke-width: 1;
-                  stroke-dasharray: none;
-                  stroke-linecap: butt;
-                  stroke-linejoin: miter;
-                  stroke-miterlimit: 10;
-                  fill: rgb(255, 255, 255);
-                  fill-rule: nonzero;
-                  opacity: 1;
-                "
-                transform=" matrix(1 0 0 1 0 0) "
-                stroke-linecap="round"
-              />
-              <path
-                d="M 35.216 78.235 c -2.209 0 -4 -1.791 -4 -4 V 44.976 c 0 -2.209 1.791 -4 4 -4 s 4 1.791 4 4 v 29.259 C 39.216 76.444 37.425 78.235 35.216 78.235 z"
-                style="
-                  stroke: none;
-                  stroke-width: 1;
-                  stroke-dasharray: none;
-                  stroke-linecap: butt;
-                  stroke-linejoin: miter;
-                  stroke-miterlimit: 10;
-                  fill: rgb(255, 255, 255);
-                  fill-rule: nonzero;
-                  opacity: 1;
-                "
-                transform=" matrix(1 0 0 1 0 0) "
-                stroke-linecap="round"
-              />
-            </g>
-          </g>
-        </svg>
+      <li
+        class="list-item base"
+        v-for="(value, index) in dataList"
+        :key="value"
+      >
+        {{ index + 1 }} {{ value }}
+
+        <img src="../assets/logo.png" alt="logo" @click="deleteCard(index)" width="20" height="20" />
       </li>
     </ul>
   </div>
-
-  
 </template>
 
 <script>
@@ -137,26 +30,26 @@ export default {
   data() {
     return {
       dataList: [],
-      inputPlaceholder: 'Add card in list...',
-      inputValue: '',
+      inputPlaceholder: "Add card in list...",
+      inputValue: "",
     };
   },
   methods: {
-    createCard() {
-      let inputValue = document.querySelector(".input").value;
-      if (inputValue === "") return;
-      this.dataList.push(inputValue);
-      inputValue = null;
-      console.log(inputValue);
+    createCard(event) {
+      this.inputValue = event.target.value;
+      if (this.inputValue === "") return;
+      this.dataList.push(this.inputValue); 
+      this.inputValue = '';
     },
-    deleteCard(event) {
-      console.log(event.target.closest('.list-item'));
-    }
+
+    deleteCard(index) {
+      this.dataList.splice(index, 1)
+    },
   },
 };
 </script>
 
-<style lang='scss' >
+<style lang="scss">
 .base {
   padding: 5px;
   border-radius: 5px;
@@ -176,7 +69,6 @@ export default {
   margin-bottom: 20px;
   padding: 5px;
   border-radius: 5px;
-
 }
 
 .list {
@@ -194,7 +86,8 @@ export default {
   border: 1px solid black;
   box-shadow: rgba(0, 0, 0, 0.438) 2px 2px;
 
-  svg {
+  img {
+    
     position: absolute;
     right: 10px;
 
@@ -211,7 +104,7 @@ export default {
   align-items: center;
   margin: 0 auto;
   column-gap: 10px;
-  
+
   .btn {
     padding: 10px;
     border: none;
@@ -219,7 +112,6 @@ export default {
     font-size: 20px;
     font-weight: bold;
 
-    
     &:first-child {
       background-color: green;
     }
@@ -230,4 +122,3 @@ export default {
   }
 }
 </style>
-
