@@ -6,17 +6,18 @@
       class="input base"
       type="text"
       :placeholder="inputPlaceholder"
+      @input="getInputValue"
       @keypress.enter="createCard"
       :value="inputValue"
     />
-    <button @click="createCard">Add card</button>
+    <button @click="createCard" class="input-btn base">Add card</button>
     <ul class="list">
       <li
         class="list-item base"
         v-for="(value, index) in dataList"
         :key="value"
       >
-        {{ index + 1 }} {{ reverseText(value) }}
+        {{ index + 1 }} {{ value }}
 
         <img src="../assets/logo.png" alt="logo" @click="deleteCard(index)" width="20" height="20" />
       </li>
@@ -35,9 +36,12 @@ export default {
     };
   },
   methods: {
-    createCard(event) {
+    getInputValue(event) {
       this.inputValue = event.target.value;
-      if (this.inputValue === "") return;
+    },
+    
+    createCard() {
+      if (this.inputValue === "") return false;
       this.dataList.push(this.inputValue); 
       this.inputValue = '';
     },
@@ -46,9 +50,6 @@ export default {
       this.dataList.splice(index, 1)
     },
 
-    reverseText(item) {
-        return item.split('').reverse().join('')
-    },
   },
 };
 </script>
@@ -72,7 +73,7 @@ export default {
   margin-right: 10px;
   margin-bottom: 20px;
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 5px; 
 }
 
 .list {
