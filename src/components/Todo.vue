@@ -6,9 +6,8 @@
       class="input base"
       type="text"
       :placeholder="inputPlaceholder"
-      @input="getInputValue"
       @keypress.enter="createCard"
-      :value="inputValue"
+      v-model="inputValue"
     />
     <button @click="createCard" class="input-btn base">Add card</button>
     <ul class="list">
@@ -23,6 +22,11 @@
       </li>
     </ul>
   </div>
+  <div class="howItems">
+      <p v-if="dataList.length === 0"> Список задач пуст</p>
+      <p v-else>  Задач в списке: {{dataList.length}}; Букв в задачах {{howLetters}}</p>
+  </div>
+
 </template>
 
 <script>
@@ -35,11 +39,7 @@ export default {
       inputValue: "",
     };
   },
-  methods: {
-    getInputValue(event) {
-      this.inputValue = event.target.value;
-    },
-    
+  methods: {    
     createCard() {
       if (this.inputValue === "") return false;
       this.dataList.push(this.inputValue); 
@@ -50,6 +50,13 @@ export default {
       this.dataList.splice(index, 1)
     },
 
+  },
+  computed : {
+    howLetters() {
+    let result = 0;
+     this.dataList.forEach(item => result += item.length)
+     return result
+    }
   },
 };
 </script>
@@ -124,6 +131,14 @@ export default {
     &:last-child {
       background-color: red;
     }
+  }
+}
+
+.howItems {
+  margin-bottom: 20px;
+  
+  p {
+    font-size: 20px;
   }
 }
 </style>
