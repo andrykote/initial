@@ -7,7 +7,7 @@
       type="text"
       :placeholder="inputPlaceholder"
       @keypress.enter="createCard"
-      v-model="inputValue"
+      v-model.trim="inputValue"
     />
     <button @click="createCard" class="input-btn base">Add card</button>
     <ul class="list">
@@ -29,7 +29,7 @@
 
 </template>
 
-<script>
+<script>  
 export default {
   name: "Todo",
   data() {
@@ -41,9 +41,10 @@ export default {
   },
   methods: {    
     createCard() {
-      if (this.inputValue === "") return false;
+      if (this.inputValue === "") return;
       this.dataList.push(this.inputValue); 
       this.inputValue = '';
+      console.log(this.dataList);
     },
 
     deleteCard(index) {
