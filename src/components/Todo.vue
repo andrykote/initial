@@ -23,10 +23,10 @@
     </ul>
   </div>
   <div class="howItems">
-      <p v-if="dataList.length === 0"> ХАХААХАХАХАХАХАХАХАХХАХААХАХАХХА</p>
+      <p v-if="dataList.length === 0"> Список задач пуст </p>
       <p v-else>  Задач в списке: {{dataList.length}}; Букв в задачах {{howLetters}}</p>
   </div>
-  I delet comit
+  
 
 </template>
 
