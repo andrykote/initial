@@ -35,24 +35,39 @@ createApp(App).mount("#app");
 //     `)
 // }
 
-function digital_root(n) {
-    if(n < 10) return n
-    return digital_root(n.toString().split('').reduce(((acc, item) => acc += +item), 0))
-  }
 
-digital_root(454)
 
-function arrayDiff(a, b) {
-    if(!b.length) {
-        console.log('sdas');
-        return a    
-    } 
-    let c = a.sort((a, b) => a-b)
-    b.map(item => c.splice(c.indexOf(item), (c.lastIndexOf(item) - c.indexOf(item) + 1) ))
-    console.log(c);
-    return c
-  }
+// function digital_root(n) {
+//     if(n < 10) return n
+//     return digital_root(n.toString().split('').reduce(((acc, item) => acc += +item), 0))
+//   }
 
-//   arrayDiff([1,8,2,8,8,8,8,8,8,8,2,2,2,2,2,2], [2])
-arrayDiff([16,5,10,-18,-12,3,3,0,-19,19,-13,13,18,8,-6],[13])
 
+// function arrayDiff(a, b) {
+//     if(!b.length) {
+//         console.log('sdas');
+//         return a    
+//     } 
+//     let c = a.sort((a, b) => a-b)
+//     b.map(item => c.splice(c.indexOf(item), (c.lastIndexOf(item) - c.indexOf(item) + 1) ))
+//     console.log(c);
+//     return c
+//   }
+
+
+  // https://www.codewars.com/kata/5266876b8f4bf2da9b000362/train/javascript
+
+
+  // function likes(names) {
+  //   let likeThis = "likes this";
+  //   if (names.length === 0) return `no one ${likeThis}`;
+  //   if (names.length === 1) return `${names[0]} ${likeThis} `;
+  //   if (names.length === 2) return `${names[0]} and ${names[1]} like this`;
+  //   if (names.length === 3)
+  //     return `${names[0]}, ${names[1]} and ${names[2]} like this`;
+
+  //   return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
+  // }
+
+
+  
