@@ -6,35 +6,6 @@ createApp(App).mount("#app");
 // let testArr = [55, 55, 98, 465, 1, 2, 5, 8, 'string', 'bystring', 'anotherstring', null, undefined, NaN, 324]
 // console.log(testArr);
 
-// let obj = {
-//     key: 'PIka',
-//     secKey: 'Boo',
-//     thrKey: ' ',
-//     k4: ' is',
-//     k5: ' a',
-//     k6: true,
-//     k7: 0,
-
-//     set getMaxSeven(arr) {
-//         Array.isArray(arr) ? this.k7 = Math.max(...arr) : null
-
-//     },
-
-// };
-
-// obj.getMaxSeven = [1,2,3,4,5,6,7,8, 1234897, 99999999]
-// console.log(obj.k7);
-
-// fetch('https://boiling-refuge-66454.herokuapp.com/images')
-//     .then(data => data.json())
-//     .then(result => result.forEach(item => createImg(item)))
-
-// function createImg(item) {
-//     document.body.insertAdjacentHTML('beforeend', `
-//         <img src="${item.url}">
-//     `)
-// }
-
 
 
 // function digital_root(n) {
@@ -55,7 +26,7 @@ createApp(App).mount("#app");
 //   }
 
 
-  // https://www.codewars.com/kata/5266876b8f4bf2da9b000362/train/javascript
+ // https://www.codewars.com/kata/5266876b8f4bf2da9b000362/train/javascript
 
 
   // function likes(names) {
@@ -70,4 +41,25 @@ createApp(App).mount("#app");
   // }
 
 
-  
+// https://www.codewars.com/kata/526571aae218b8ee490006f4/
+
+
+  // var countBits = function(n) {
+  //   let binary = (n).toString(2)
+  //   return binary.split('').reduce((acc, item) => acc += +item , 0);
+  // };
+
+
+// https://www.codewars.com/kata/525f50e3b73515a6db000b83
+
+//   function createPhoneNumber(numbers){
+//     return `(${numbers.slice(0,3).join('')}) ${numbers.slice(3,6).join('')}-${numbers.slice(6,10).join('')}`;
+//   }
+
+
+let a = 20;
+let b = 40;
+
+[a,b] = [b,a];
+
+console.log(a,b);
