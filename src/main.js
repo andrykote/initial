@@ -57,9 +57,10 @@ createApp(App).mount("#app");
 //   }
 
 
-let a = 20;
-let b = 40;
+let promise = new Promise(function() {
+  // функция-исполнитель (executor)
+  // "певец"
+});
 
-[a,b] = [b,a];
 
-console.log(a,b);
+console.log(promise);
