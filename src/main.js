@@ -57,10 +57,11 @@ createApp(App).mount("#app");
 //   }
 
 
-let promise = new Promise(function() {
-  // функция-исполнитель (executor)
-  // "певец"
+let promise = new Promise(function(resolve, reject) {
+  resolve('dones')
+  reject('done')
 });
 
+promise.then(data => console.log(data))
 
 console.log(promise);
