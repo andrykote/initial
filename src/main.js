@@ -57,11 +57,15 @@ createApp(App).mount("#app");
 //   }
 
 
-let promise = new Promise(function(resolve, reject) {
-  resolve('dones')
-  reject('done')
-});
+// https://www.codewars.com/kata/515de9ae9dcfc28eb6000001
 
-promise.then(data => console.log(data))
-
-console.log(promise);
+// function solution(str){
+//   let result =[]
+//   let splitString = str.split('');
+//   if(splitString % 2 !== 0) splitString.push('_')
+//   console.log(splitString);
+//   for(let i = 1; i <= splitString.length -1; i += 2) {
+//     result.push(splitString[i - 1]+splitString[i])
+//   }
+//   return result
+// }
